@@ -10,11 +10,12 @@ export default component$(() => {
     textThree: "Boys",
   });
 
-  const checkTexts = $(() =>
-    (state.textOne == "" || state.textOne == " "
-      ? (state.textOne = "Girls")
-      : (state.textOne = state.textOne))((state.updateVisible = false))
-  );
+  const checkTexts = $(() => {
+    if (state.textOne == "" || state.textOne == " ") {
+      state.textOne = "Girls";
+    }
+    state.updateVisible = false;
+  });
 
   return (
     <div>
