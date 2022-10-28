@@ -50,4 +50,5 @@ export default component$(() => {
 
 export const head: DocumentHead = {
   title: "Singer Chooser",
+  meta: [{ name: "apple-mobile-web-app-capable", content: "yes" }],
 };
