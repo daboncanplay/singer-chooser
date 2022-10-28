@@ -18,7 +18,7 @@ export default component$(() => {
             item: true,
           }}
           style={{
-            "font-size": `${state.number}px`,
+            "font-size": `${120 - state.number}px`,
           }}
         >
           Girls
@@ -28,7 +28,7 @@ export default component$(() => {
             item: true,
           }}
           style={{
-            "font-size": `${120 - state.number}px`,
+            "font-size": `${state.number}px`,
           }}
         >
           Boys
