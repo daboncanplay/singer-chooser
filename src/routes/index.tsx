@@ -3,7 +3,7 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 
 export default component$(() => {
   const state = useStore({
-    number: 60,
+    number: 0,
   });
 
   return (
@@ -18,7 +18,7 @@ export default component$(() => {
             item: true,
           }}
           style={{
-            "font-size": `${120 - state.number}px`,
+            "font-size": `${Math.max(-state.number + 30, 30)}px`,
           }}
         >
           Girls
@@ -28,7 +28,17 @@ export default component$(() => {
             item: true,
           }}
           style={{
-            "font-size": `${state.number}px`,
+            "font-size": `${130 - Math.abs(state.number)}px`,
+          }}
+        >
+          Everyone
+        </div>
+        <div
+          class={{
+            item: true,
+          }}
+          style={{
+            "font-size": `${Math.max(state.number + 30, 30)}px`,
           }}
         >
           Boys
@@ -38,8 +48,8 @@ export default component$(() => {
         style={{ width: `100%` }}
         type="range"
         value={state.number}
-        min={10}
-        max={110}
+        min={-100}
+        max={100}
         onInput$={(ev) => {
           state.number = (ev.target as HTMLInputElement).valueAsNumber;
         }}
